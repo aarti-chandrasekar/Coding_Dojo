@@ -1,0 +1,34 @@
+div{
+    margin: 2%
+}
+
+#searchBn{
+    color:darkturquoise;
+    border-color: darkturquoise;
+    font-size: medium;
+    font-weight:bolder;
+    padding: 0.25% 3% ;
+    border-radius: 25em;
+    border-style: solid;
+}
+
+#plusBn{
+    color:white;
+    border-color: darkturquoise;
+    background-color: darkturquoise;
+    font-size: 20pt;
+    font-weight:bolder;
+    padding: 0.50% 0,50% ;
+    border-radius: 50em;
+    border-style: solid;
+}
+
+#createBn{
+    color:white;
+    border-color: black;
+    border-style: double;
+    background-color: dodgerblue;
+    font-size: 12pt;
+    padding: .75% 3% ;
+    box-shadow: 5px 5px black;
+}
