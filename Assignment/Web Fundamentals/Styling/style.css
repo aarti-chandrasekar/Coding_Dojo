@@ -1,0 +1,25 @@
+h1{
+    background-color: black;
+    color: white;
+    font-family:cursive;
+}
+
+h1 span{
+    color: aqua;
+}
+
+h2{
+    background-color:blueviolet;
+    color: white;
+    font-family:cursive;
+    font-style: italic;
+    text-align: center;
+}
+
+h3{
+    background-color:skyblue;
+    color:navy;
+    font-family:cursive;
+    text-decoration: underline ;
+    text-align: right;
+}
