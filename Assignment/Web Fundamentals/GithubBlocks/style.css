@@ -1,0 +1,46 @@
+img{
+    width: 200px;
+    height: 200px;
+    /* margin: 10px; */
+}
+
+h1{
+    color: azure;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 50px;
+    margin:10px;
+}
+
+h4{
+    color:antiquewhite;
+    text-align: center;
+}
+
+.main{
+    background-color:black;
+    width: 800px;
+    height: 850px;
+    padding-top: 2px;
+}
+
+.row{
+    margin: 20px;
+    height: 225px;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.top{
+    background-color: gray;
+}
+
+.mid{
+    background-color:darkgray;
+    
+}
+.bottom{
+    background-color:lightgray;
+}
