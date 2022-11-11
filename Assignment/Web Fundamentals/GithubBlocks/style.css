@@ -1,7 +1,5 @@
 img{
     width: 200px;
-    height: 200px;
-    /* margin: 10px; */
 }
 
 h1{
@@ -17,6 +15,10 @@ h4{
     text-align: center;
 }
 
+a{
+    color:skyblue
+}
+
 .main{
     background-color:black;
     width: 800px;
@@ -26,21 +28,20 @@ h4{
 
 .row{
     margin: 20px;
-    height: 225px;
+    padding: 10px;
     display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: space-around;
+    justify-content:space-around;
 }
 
 .top{
-    background-color: gray;
+    background-color:pink;
 }
 
 .mid{
-    background-color:darkgray;
-    
+    background-color:lightsalmon;
+    padding-left: 75px;
+    padding-right: 75px;
 }
 .bottom{
-    background-color:lightgray;
+    background-color:lightblue;
 }
