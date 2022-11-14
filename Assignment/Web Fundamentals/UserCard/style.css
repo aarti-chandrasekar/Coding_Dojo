@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    padding: 35px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border: 1px gray solid;
+    border-top: 100px rgb(0, 179, 179) solid;
+    width: 600px;
+    height:200px;
+    padding: 35px;
+    justify-content: space-evenly;
+    font-family: cursive ;
+}
+
+.name{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.icon{
+    width:15px;
+    float: left;
+    padding-right: 10px;
+}
+
+.label_loc{
+    font-size: 20px;
+}
+
+.label_desc{
+    font-size: 15px;
+    display: block;
+}
+
+.edit{
+    font-size: 15px;
+}
+
+.pic{
+    position: absolute;
+    top: 90px;
+    width: 90px;
+    border-radius: 50em;
+    border: 5px gray solid;
+    padding: 3px;
+    background-color: white;
+}
