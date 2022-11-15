@@ -1,3 +1,9 @@
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body{
     display: flex;
     justify-content: center;
@@ -8,7 +14,7 @@ body{
     display: flex;
     flex-direction: column;
     border: 1px gray solid;
-    border-top: 100px rgb(0, 179, 179) solid;
+    border-top: 100px rgb(23,162,184) solid;
     width: 600px;
     height:200px;
     padding: 35px;
@@ -23,7 +29,6 @@ body{
 
 .icon{
     width:15px;
-    float: left;
     padding-right: 10px;
 }
 
@@ -38,6 +43,7 @@ body{
 
 .edit{
     font-size: 15px;
+    color: rgb(12,83,148)
 }
 
 .pic{
