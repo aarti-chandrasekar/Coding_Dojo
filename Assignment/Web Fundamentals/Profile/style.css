@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, cursive;
+
+}
+
+
+body{
+    /* display: flex; */
+    /* justify-content: center; */
+    /* padding: 35px; */
+}
+
+.ul_nostyle{
+    list-style: none;   
+}
+
+/* Navigation Bar  */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 200px;
+    background-color: black;
+    color: white;
+}
+
+.navbar_menu{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.navbar_title{
+    font-size: 1.75rem;
+}
+
+.navbar_btn{
+    background-color: rgb(23,162,184);
+    color:white;
+    padding: 2px 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.navbar_active{
+    font-weight: bolder;
+}
+
+.navbar li{
+    padding-right: 25px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color:white;
+}
+
+/* Main Container */
+.main{
+    padding: 10px 200px;
+}
+
+/* User Card  */
+.usercard{
+    display: flex;
+    flex-direction: column;
+    border: 1px gray solid;
+    border-top: 100px rgb(23,162,184) solid;
+    width: 600px;
+    height:200px;
+    padding: 35px;
+    justify-content: space-evenly;
+
+}
+
+.usercard_name{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.usercard_icon{
+    width:15px;
+    padding-right: 10px;
+}
+
+.usercard_label_loc{
+    font-size: 20px;
+}
+
+.usercard_label_desc{
+    font-size: 15px;
+    display: block;
+}
+
+.usercard_edit{
+    font-size: 15px;
+    color: rgb(12,83,148)
+}
+
+.usercard_pic{
+    position: absolute;
+    top: 90px;
+    width: 90px;
+    border-radius: 50em;
+    border: 5px gray solid;
+    padding: 3px;
+    background-color: white;
+}
