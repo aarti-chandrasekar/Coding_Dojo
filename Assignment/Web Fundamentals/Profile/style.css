@@ -1,44 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "generic.css";
 
-/* CSS Reset */
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Roboto, cursive;
-
-}
-
-
-body{
-    /* display: flex; */
-    /* justify-content: center; */
-    /* padding: 35px; */
-}
-
-.ul_nostyle{
+/*********** NAV BAR BEGIN **********/
+/* Nav bar Menu */
+.navbar_menubar{
     list-style: none;   
-}
-
-/* Navigation Bar  */
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 200px;
-    background-color: black;
-    color: white;
-}
-
-.navbar_menu{
     display: flex;
     align-items: center;
     font-size: 15px;
 }
 
+/* Nav bar Current Page Title */
 .navbar_title{
     font-size: 1.75rem;
+    color: white;
 }
 
+/* Nav bar Menu item */
+.navbar_menu{
+    color: gray;
+    text-decoration: none;
+}
+
+/* Nav bar Selected/Active Menu item */
+.navbar_menu-active{
+    font-weight: bolder;
+    color: white;
+    text-decoration: none;
+}
+
+/* Nav bar Sign Out Bn */
 .navbar_btn{
     background-color: rgb(23,162,184);
     color:white;
@@ -47,45 +38,56 @@ body{
     font-size: 15px;
 }
 
-.navbar_active{
-    font-weight: bolder;
-}
-
+/* Nav bar spacing between Menu items */
 .navbar li{
     padding-right: 25px;
 }
 
-.navbar a{
-    text-decoration: none;
-    color:white;
+/*********** NAV BAR END **********/
+
+/* Main Left Column */
+#col1{
+    flex :2;
 }
 
-/* Main Container */
-.main{
-    padding: 10px 200px;
+/* Main Right Column */
+#col2{
+    flex :1;
 }
 
-/* User Card  */
-.usercard{
-    display: flex;
-    flex-direction: column;
-    border: 1px gray solid;
-    border-top: 100px rgb(23,162,184) solid;
-    width: 600px;
-    height:200px;
-    padding: 35px;
-    justify-content: space-evenly;
+/*********** USER CARD BEGIN **********/
+/* User Card  Body */
+.usercard_body > *{
+    margin: 10px 0px;
+}
 
+.usercard_header{
+    background-color: rgb(23,162,184);
+    height: 65px;
+    padding-left: 20px;
+}
+
+.usercard_body{
+    padding-left: 20px;
+    margin-top: 50px;
+}
+
+.usercard_pic{
+    width: 90px;
+    border-radius: 50em;
+    border: 5px gray solid;
+    padding: 3px;
+    background-color: white;
 }
 
 .usercard_name{
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .usercard_icon{
-    width:15px;
-    padding-right: 10px;
+    width:12px;
+    padding-right: 5px;
 }
 
 .usercard_label_loc{
@@ -102,12 +104,21 @@ body{
     color: rgb(12,83,148)
 }
 
-.usercard_pic{
-    position: absolute;
-    top: 90px;
-    width: 90px;
-    border-radius: 50em;
-    border: 5px gray solid;
-    padding: 3px;
-    background-color: white;
+
+
+/*********** USER CARD END **********/
+
+/* Education */
+#edu{
+    /* flex: 1; */
+}
+
+/* Requests */
+#requests{
+    /* flex: 1; */
+}
+
+/* Connections */
+#connections{
+    /* flex: 2; */
 }

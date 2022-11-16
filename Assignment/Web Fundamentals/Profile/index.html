@@ -11,11 +11,11 @@
 
 <body>
     <div class="navbar">
-        <ul class="ul_nostyle navbar_menu">
+        <ul class="navbar_menubar">
             <li class="navbar_title">Profile</li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#" class="navbar_active">My Profile</a></li>
-            <li><a href="#">Find Connections</a></li>
+            <li><a href="#" class="navbar_menu">Home</a></li>
+            <li><a href="#" class="navbar_menu-active">My Profile</a></li>
+            <li><a href="#" class="navbar_menu">Find Connections</a></li>
         </ul>
 
         <button class="navbar_btn">Sign Out</button>
@@ -23,23 +23,49 @@
     </div>
 
     <div class="main">
-        <div class="col1">
-            <div class="usercard">
+        <div id="col1" class="main_column">
+            <div id="usercard" class="graybox">
+                <div class="usercard_header">
+                    <img src="images/jane-m.jpg" alt="Profile Pic" class="usercard_pic">
+                </div>
 
+                <div class="usercard_body">
+                    <p class="usercard_name">Jane Doe</p>
+                    <p>
+                        <img src="icons/map-marker.png" alt="Location" class="usercard_icon">
+                        <label class="usercard_label_loc">Seattle</label>
+                    </p>
+
+                    <p class="usercard_label_desc">
+                        Developer | Engineer | Problem Solver<br>
+                        Master of shadows and the Internet!
+                    </p>
+
+                    <p>
+                        <a href="#" class="usercard_edit">
+                            <img src="icons/gear.png" alt="Gear" class="usercard_icon">edit profile
+                        </a>
+                    </p>
+                </div>
             </div>
 
-            <div class="edu">
-
+            <div id="edu" class="graybox">
+                dkfjkldsfjkldsfjlksdfjlksdaf<br>
+                kfjkdsf<br>
+                kldjflkdsfj
+                sdfjkdsfld
+                djdfklsdajf
+                sdfklsdf
             </div>
         </div>
 
-        <div class="col2">
-            <div class="requests">
-
+        <div id="col2" class="main_column">
+            <div id="requests" class="graybox">
+                abcdefg
             </div>
 
-            <div class="connections">
-
+            <div id="connections" class="graybox">
+                12324343543545
             </div>
 
         </div>

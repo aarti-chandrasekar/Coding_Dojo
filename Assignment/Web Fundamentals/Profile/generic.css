@@ -1,0 +1,71 @@
+/* Commonly used & Re-usable Style Classes go here */
+
+/* CSS Reset */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, cursive;
+}
+
+/* Font-Family used on the page */
+*{
+    font-family: "Roboto", "cursive";
+}
+
+/* Set the Working Area for the page */
+body > *{
+    padding: 10px 200px;
+}
+
+.text-white{
+    color:white;
+}
+
+.text-gray{
+    color:gray;
+}
+
+/* List without any bullets */
+.ul-nostyle{
+    list-style: none;   
+}
+
+/* Remove underline from hyper-links */
+.a-noline{
+    text-decoration: none;
+}
+
+/* B&W Sticky Navigation Bar  */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    position: sticky;
+    top: 0px;
+}
+
+/* Container with gray border */
+.graybox{
+    border: 1px gray solid;
+}
+
+/* All child elements in a graybox are set to display BLOCK */
+.graybox{
+    display: block;
+}
+
+/* Main Container */
+.main{
+    display: flex;
+    gap:20px;
+}
+
+/* Left/Right Column in Main container */
+.main_column{
+    display: flex;
+    flex-flow: column;
+    row-gap: 20px;
+}
+
