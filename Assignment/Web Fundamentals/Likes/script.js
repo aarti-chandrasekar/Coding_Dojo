@@ -6,4 +6,7 @@ function displayLike(){
 
 function likeBnHandler(){
     likeCnt++;
+    console.log("Like Count - "+ likeCnt);
+
+    displayLike();
 }
