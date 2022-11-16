@@ -1,0 +1,18 @@
+.main{
+    margin: 0px 200px;
+}
+
+.box{
+    border: 3px black solid;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 30%;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
