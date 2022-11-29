@@ -16,37 +16,32 @@ class User:
         print("Age:", self.age)
         print("Rewards Member:", "Yes" if self.is_rewards_member else "No")
         print("Gold Card Points:", self.gold_card_points)
+        return self
 
     def enroll(self):
         if self.is_rewards_member:
             print(f"User {self.first_name} {self.last_name} already a member.")
-            return False
         self.is_rewards_member  = True
         self.gold_card_points  = 200
-        return True
+        return self
+
 
     def spend_points(self, amount):
         if self.gold_card_points >= amount:
             self.gold_card_points  -= amount
             print(f"{amount} points deducted from User {self.first_name} {self.last_name}. Balance points - {self.gold_card_points}")
-            return True
         else:
             print(f"User {self.first_name} {self.last_name} does not have enough points to spend. Available points - {self.gold_card_points}")
-            return False
+        return self
 
 # Create User instances
 user1 = User("Ayrton", "Senna", "senna@efg.com", 95)
-user1.display_info()
-user1.enroll()
-user1.display_info()
+user1.display_info().enroll().display_info().spend_points(50)
 
 user2 = User("Ussain", "Bolt", "ussain@efg.com", 35)
 user3 = User("Rafael", "Nadal", "nadal@efg.com", 38)
 
-user1.spend_points(50)
-
-user2.enroll()
-user2.spend_points(80)
+user2.enroll().spend_points(80)
 
 user1.display_info()
 user2.display_info()
