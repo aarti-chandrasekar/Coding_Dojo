@@ -62,6 +62,18 @@ for (var i=0; i<len; i++){
 console.log("reverse the names of the pokémon whose only type is 'poison'")
 for (var i=0; i<len; i++){
     if (pokemon[i].types.length == 1 && pokemon[i].types[0] == "poison") {
-        console.log(pokemon[i].name.split("").reverse().join(""));
+        // console.log(pokemon[i].name.split("").reverse().join(""));
+        console.log(reverseString(pokemon[i].name));
     }
+}
+
+function reverseString(str){
+    var len = str.length;
+    var revStr = "";
+
+    for (var i=len-1; i>=0; i--){
+        revStr += str.charAt(i);
+    }
+
+    return revStr;
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Dessert</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- MAIN Content Area -->
+    <div class="main">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h2 class="txtWhite">Just<span class="txtOrange">Dessert</span></h2>
+            <div class="headerBns">
+                <button class="rectShadowBtn joinBn" onclick="removeElement(this);">Join</button>
+                <button class="rectShadowBtn loginBn">Login</button>
+            </div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="searchBar">
+            <div class="searchTxtBn">
+                <input type="text" id="searchTxt" class="searchTxt" value="SEARCH">
+                <button class="goBn" onclick="goBnHandler();">Go</button>
+            </div>
+            <a href="#" class="icnTxt">
+                <img src="images/cake.png" alt="Cake Pic" class="icon">
+                <h4>Cake</h4>
+            </a>
+
+            <a href="#" class="icnTxt">
+                <img src="images/cookie.png" alt="Cookies Pic" class="icon">
+                <h4>Cookies</h4>
+            </a>
+
+            <a href="#" class="icnTxt">
+                <img src="images/ice-cream.png" alt="Ice Cream Pic" class="icon">
+                <h4>Ice Cream</h4>
+            </a>
+
+            <a href="#" class="icnTxt">
+                <img src="images/pie.png" alt="Pie Pic" class="icon">
+                <h4>Pie</h4>
+            </a>
+        </div>
+
+
+        <!-- CONTENT BODY -->
+        <div class="contentArea">
+            <!-- Right Side Box -->
+            <div class="col1">
+                <div class="row1">
+                    <img src="images/orange-tart.jpg" alt="tart" class="imageB">
+                </div>
+            </div>
+
+            <!-- Left Side Boxes -->
+            <div class="col2">
+                <!-- Box 1 Top -->
+                <div class="boxL">
+                    <img src="images/macarons.jpg" alt="macarons"  class="imageS">
+                </div>
+
+                <!-- Box 2 bottom -->
+                <div class="boxL">
+                    <img src="images/creme-brulee.jpg" alt="brulee" class="imageS">
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

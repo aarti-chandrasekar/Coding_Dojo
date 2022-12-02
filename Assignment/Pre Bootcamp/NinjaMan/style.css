@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* CSS Reset  & Set the Font for the page*/
+* {
+    margin: 0;
+    padding: 0;
+    /* TODO */
+    font-family: Roboto, cursive;
+}
+
+
+/************ MAIN CONTENT AREA *************/
+body {
+    /* Align the main body in the center*/
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.main{
+    display: flex;
+    flex-flow: column;
+    padding: 20px;
+
+}
+
+.main > *{
+    display: flex;
+}
+
+.block{
+    width: 50px;
+    height: 50px;
+}
+
+.bg_grey{
+    background-color: darkgray;
+}
+
+.bg_yellow{
+    background-color: yellow;
+}
+

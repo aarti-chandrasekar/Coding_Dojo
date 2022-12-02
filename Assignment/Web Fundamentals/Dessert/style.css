@@ -1,0 +1,186 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* CSS Reset  & Set the Font for the page*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, cursive;
+}
+
+/************ UTILITY CLASSES BEGIN *************/
+.txtWhite{
+    color: white;
+}
+
+.txtOrange{
+    color: orange;
+}
+
+.rectShadowBtn{
+    padding: 3px 10px;
+    box-shadow: 2px 4px black;
+}
+
+/************ UTILITY CLASSES END *************/
+
+body{
+    background-color: rgb(238,238,238);
+
+    /* Align the main body in the center*/
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    /* White border around the main content */
+    border-left: 10px white solid;
+    border-right: 10px white solid;
+    border-bottom: 10px white solid;
+}
+
+/* Apply padding around all direct children of main - 
+    header, search bar and main content area
+    Aligns the items uniformly
+*/
+.main > *{
+    padding: 10px;
+}
+
+/************ HEADER BEGIN *************/
+.header{
+    background-color: rgb(51,51,51);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerBns{
+    display: flex;
+    gap: 15px;
+}
+
+.joinBn{
+    background-color: orange;
+}
+
+.loginBn{
+    color: white;
+    background-color: rgb(9,83,147);
+}
+
+/************ HEADER END *************/
+
+/************ SEARCH BAR BEGIN *************/
+.searchBar{
+    background-color: rgb(249,203,156);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchTxtBn{
+    display: flex;
+    justify-content: center;
+    /* flex: 2; */
+}
+
+.searchTxt{
+    width: 200px;
+    height: 15px;
+    color: gray;
+    border: 2px black solid;
+    padding: 5px 15px;
+    border-radius: 0.75em 0em 0em 0.75em;
+}
+
+.goBn{
+    color: white;
+    background-color: rgb(9,83,147);
+    padding: 3px 10px;
+    border-radius: 0em 0.75em 0.75em 0em ;
+}
+
+.icnTxt{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.icon{
+    background-color: white;
+    width: 100px;
+    border-radius: 50%;
+}
+
+/************ SEARCH BAR END *************/
+
+/************ MAIN CONTENT AREA BEGIN *************/
+.contentArea{
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 10px white solid;
+    align-items: stretch;
+}
+
+.col1{
+    flex: 2;
+}
+
+.col2{
+    flex: 1;
+}
+
+.col1 > .row1{
+    padding: 10px;
+}
+
+.boxL{
+    border: 3px black solid;
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.boxL_left{
+    text-align: center;
+}
+
+.imageB{
+    width:400px;
+}
+
+.imageS{
+    width:200px;
+}
+
+.line2{
+    font-size: 14px ;
+}
+
+.line3{
+    font-size: 12px ;
+}
+
+.likesBn{
+    padding: 3px 8px;
+    margin-top: 15px;
+    background-color: rgb(255,217,102);
+    box-shadow: 2px 4px black;
+}
+
+.boxR{
+    border: 3px black solid;
+    padding: 10px;
+}
+
+.addBn{
+    padding: 3px 8px;
+    margin-top: 15px;
+    background-color: rgb(147,196,125);
+    box-shadow: 2px 4px black;
+}
+/************ MAIN CONTENT AREA END *************/

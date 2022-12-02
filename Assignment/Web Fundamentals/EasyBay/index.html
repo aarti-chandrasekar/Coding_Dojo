@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Succulent Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- MAIN CONTENT AREA -->
+    <div class="main">
+
+        <!-- TITLE BAR -->
+        <div class="titleBar">
+            <img src="icons/leaf.png" alt="Leaf" class="icons bg_green">
+            <div class="pageTitle">EasyBay</div>
+            <div class="searchTxtBn">
+                <input type="text" id="searchTxt" class="searchTxt" value="Search for anything">
+                <a href="#"><img src="icons/search-dark.png" alt="Search" class="searchicon"></a>
+            </div>
+            <a href="#" class="menuTxt">Sign In</a>
+            <a href="#" onclick="cartHandler();">
+                <img src="icons/cart-dark.png" alt="Cart" class="icons">
+            </a>
+        </div>
+
+        <!-- MENU BAR -->
+        <div class="menuBar">
+            <a href="#" class="menuTxt">Aeonium</a>
+            <a href="#" class="menuTxt">Andormischus</a>
+            <a href="#" class="menuTxt">Agave</a>
+            <a href="#" class="menuTxt">Aloe</a>
+            <a href="#" class="menuTxt">Anacampseros</a>
+            <a href="#" class="menuTxt">Aristaloe</a>
+            <a href="#" class="menuTxt">More ...</a>
+        </div>
+
+        <p class="contentTitle">Your Source for Serious Succulent Specialities</p>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="contentArea">
+            <div class="r1">
+                <div class="r1c1">
+                    <div class="darkGreenBox">
+                        <p>Discover succulent varieties one pot or rock at a time!</p>
+                        <a href="#" class="txtWhite a_noline">
+                            Discover<img src="icons/arrow-light.png" alt="arrow" class="icons_small">
+                        </a>
+
+                    </div>
+
+                    <img src="images/succulents-1.jpg" id="pic" onmouseenter="showPic2()" onmouseleave="showPic1()"
+                        alt="succulents" class="imageBig">
+                </div>
+
+                <div class="r1c2">
+                    <img src="images/aloe-m.jpg" alt="succulents" class="imageS r1c2r1">
+
+
+                    <div class="darkGreenBox">
+                        <a href="#" class="txtWhite a_noline">
+                            Soothing Aloe
+                            <img src="icons/arrow-light.png" alt="arrow" class="icons_small r1c2r2">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Succulent BAR -->
+            <div class="sucBar">
+
+                <a href="#" class="icnTxt">
+                    <img src="images/aeonium-s.jpg" alt="aeonium" class="icon">
+                    <h4>Aeonium</h4>
+                </a>
+
+                <a href="#" class="icnTxt">
+                    <img src="images/aloe-m.jpg" alt="Agave" class="icon">
+                    <h4>Agave</h4>
+                </a>
+
+                <a href="#" class="icnTxt">
+                    <img src="images/cactus-s.jpg" alt="cactus" class="icon">
+                    <h4>Cactus</h4>
+                </a>
+
+                <a href="#" class="icnTxt">
+                    <img src="images/sedum-s.jpg" alt="Sedum" class="icon">
+                    <h4>Sedum</h4>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+div{
+    font-size: 20pt;
+    vertical-align: top;
+}
+
+.first{
+    background-color: aquamarine;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.second{
+    background-color: burlywood;
+    width: 200px;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.third{
+    background-color: dimgrey;
+    width: 200px;
+    height: 200px;
+    box-sizing:border-box;
+}
+
+.blok{
+    display: block;
+}
+
+.inl{
+    display: inline;
+}
+
+.inl-blok{
+    display: inline-block;
+}

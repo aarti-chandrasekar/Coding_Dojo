@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 /* Commonly used & Re-usable Style Classes go here */
 
 /* CSS Reset */
@@ -7,10 +10,7 @@
     font-family: Roboto, cursive;
 }
 
-/* Font-Family used on the page */
-*{
-    font-family: "Roboto", "cursive";
-}
+
 
 /* Set the Working Area for the page */
 body > *{
