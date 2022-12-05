@@ -69,7 +69,7 @@ while len(user.cards) > 0 and len(comp.cards) > 0 and len(deck.cards) > 0:
     else:
         rand_index = matching_indexes[randint(0, len(matching_indexes)-1)]
         open_card =  comp.cards.pop(rand_index)
-        print(f3"Computer Discarded a card and now has {len(comp.cards)} cards \n")
+        print(f"Computer Discarded a card and now has {len(comp.cards)} cards \n")
         print_open_card(open_card)
 
     user.show_cards()
