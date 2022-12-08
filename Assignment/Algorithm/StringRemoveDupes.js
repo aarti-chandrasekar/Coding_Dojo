@@ -98,15 +98,17 @@ function reverseWords(str) {
     var tempStr = "";
     var result = "";
 
+    // const strB = "hello world"; 
+    // const expectedB = "olleh dlrow";
     for (var i=0; i<len; i++) {
         if (str[i] != " "){
-            tempStr = str[i] + tempStr + " ";
+            tempStr = str[i] + tempStr;
         } else {
-            result += tempStr;
+            result += (result.length == 0 ? "" :" ")+ tempStr;
             tempStr = "";
         }
     }
-    result += tempStr;
+    result += (result.length == 0 ? "" :" ")+ tempStr;
     return result;
 }
 
