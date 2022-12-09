@@ -17,10 +17,12 @@ def say_name(name):
         return "Please enter a valid name."
 
 
+# @app.route('/say/<int:times>/<word>')       
 @app.route('/say/<times>/<word>')       
 def repeat_word(times, word):
     if word.isalpha() and times.isnumeric():
-        return (word + " ") * int(times)
+    # if word.isalpha():
+        return (word + " ") * times
     else:
         return "Please enter a valid number and name."
 
