@@ -1,0 +1,18 @@
+.fruitimg{
+    width : 150px;
+    height : 150px;
+    background-color: gray;
+    padding: 10px;
+    margin: 20px;
+}
+
+.fruitsbox{
+    display: flex;
+    flex-flow: column wrap;
+    justify-items: center;
+    align-items: center;
+}
+
+.fruitstable{
+    text-align: center;
+}
