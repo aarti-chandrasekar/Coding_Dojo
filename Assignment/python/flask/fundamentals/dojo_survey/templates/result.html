@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dojo Survey - Result</title>
+</head>
+
+<body>
+    <div class="container m-3">
+        <div class="col-6 offset-3 bg-secondary rounded">
+            <div class="row my-3">
+                <div class="col d-flex justify-content-center">
+                    <h3 class="text-warning">Submitted info</h3>
+                </div>
+            </div>
+
+            <!-- Name -->
+            <div class="row my-3">
+                <div class="col-5">
+                    <h5 class="text-white">Name :</h5>
+                </div>
+                <div class="col-6">
+                    <h5 class="text-white">{{session['name']}}</h5>
+                </div>
+            </div>
+
+            <!-- Sex -->
+            <div class="row my-3">
+                <div class="col-5">
+                    <h5 class="text-white">Sex :</h5>
+                </div>
+                <div class="col-6">
+                    <h5 class="text-white">{{session['sex']}}</h5>
+                </div>
+            </div>
+
+            <!-- Dojo Location -->
+            <div class="row my-3">
+                <div class="col-5">
+                    <h5 class="text-white">Dojo Location :</h5>
+                </div>
+                <div class="col-6">
+                    <h5 class="text-white">{{session['location']}}</h5>
+                </div>
+            </div>
+
+            <!-- Favorite Language -->
+            <div class="row my-3">
+                <div class="col-5">
+                    <h5 class="text-white">Favorite Language :</h5>
+                </div>
+                <div class="col-6">
+                    <h5 class="text-white">{{session['language']}}</h5>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div class="row my-3">
+                <div class="col-5">
+                    <h5 class="text-white">Comments :</h5>
+                </div>
+                <div class="col-6">
+                    <pre>
+                        <h5 class="text-white">{{session['comments']}}</h5>
+                    </pre>
+                </div>
+            </div>
+
+            <!-- Understand -->
+            <div class="row my-3">
+                <div class="col-5">
+                    <h5 class="text-white">I Understand :</h5>
+                </div>
+                <div class="col-6">
+                    <h5 class="text-white">{{session['understand']}}</h5>
+                </div>
+            </div>            
+
+            <button type="button" class="form-group btn btn-warning" onclick="location.href = '/'">Back</button>
+        </div>
+    </div>
+</body>
+
+</html>
