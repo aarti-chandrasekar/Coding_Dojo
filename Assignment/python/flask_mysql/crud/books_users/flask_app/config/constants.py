@@ -1,0 +1,1 @@
+SCHEMA = 'books_schema'
