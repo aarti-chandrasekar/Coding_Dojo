@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container align-content-center">
+        <div class="d-flex justify-content-between m-3 gap-5">
+
+            <!-- Left Container -->
+            <div class="container bg-dark">
+                <h1 class="text-white">New User</h1>
+
+                <form action="/users/create" method="POST">
+                    <!-- First Name -->
+                    <div class="form-group"> 
+                        <label for="first_name" class=" text-white">First Name : <span class="text-danger font-weight-bold">
+                                *
+                            </span></label>
+                        <input type="text" name="first_name" id="first_name" required maxlength="45" class="rounded form-control">
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group"> 
+                        <label for="last_name" class=" text-white">Last Name : <span class="text-danger font-weight-bold">
+                                *
+                            </span></label>
+                        <input type="text" name="last_name" id="last_name" required maxlength="45" class="rounded form-control">
+                    </div>
+
+                    <input type="submit" value="Create" class="form-group btn btn-warning my-2">
+                </form>
+            </div>
+
+            <!-- Right Container -->
+            <div class="container bg-dark">
+                <h1 class="text-white">All Users</h1>
+
+                <ul class="list-group my-2">
+                    {% if data_list %}
+                    {% for data in data_list %}
+                        <li class="list-group-item list-group-item-secondary">
+                            <a href="/users/{{ data['id'] }}"> {{ data['first_name'] }} {{ data['last_name'] }}</a>
+                        </li>
+                    {% endfor %}
+                    {% endif %}
+
+                </ul>
+
+                <a href="/books" class="btn btn-primary my-2">Add Book</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>

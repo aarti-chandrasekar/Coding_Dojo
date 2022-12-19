@@ -1,0 +1,1 @@
+SCHEMA = 'boilerplate_schema'
