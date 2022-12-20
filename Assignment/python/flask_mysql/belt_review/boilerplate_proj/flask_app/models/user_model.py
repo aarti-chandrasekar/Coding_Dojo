@@ -1,16 +1,16 @@
 import re
 from flask import flash
 
+from flask_app import app
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask_app.config.crud_helper import CrudHelper
 from flask_app.config.constants import SCHEMA
 
-from flask_app.models import book_model
 
 
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 TABLE = 'users'
 COLUMNS = ('first_name', 'last_name', 'email', 'password', )  # Columns used in INSERT/UPDATE queries
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$') 
 
 
 # Model (class representation) for DB Table users
@@ -24,16 +24,12 @@ class User:
         self.created_at = data[f'{TABLE}.created_at'] if f'{TABLE}.created_at' in data else data['created_at']
         self.updated_at = data[f'{TABLE}.updated_at'] if f'{TABLE}.updated_at' in data else data['updated_at']
 
-        self.books_list = []
 
     def __repr__(self) -> str:
         ret_str = f"""User Model ------------> id = {self.id}, first_name = {self.first_name}, 
             last_name = {self.last_name}, email = {self.email}, password = {self.password}, 
             created_at = {self.created_at}, updated_at = {self.updated_at},\n"""
 
-        # TODO Fix this
-        ret_str += f"dojo_list = {self.dojo_list}" if hasattr(
-            self, "dojo_list") else ""
         return ret_str
 
 
@@ -67,35 +63,6 @@ class User:
         CrudHelper.delete(table_name=TABLE, id=data['id'])
 
 
-    # Method returns model User filled with books_list : list of favorite books for a given user  from DB
-    @classmethod
-    def get_user_and_books(cls, user_id):
-        query = f"""SELECT *  FROM users 
-                    LEFT JOIN favorites ON users.id = favorites.user_id
-                    LEFT JOIN books ON books.id = favorites.book_id
-                    WHERE users.id = %(user_id)s ;"""
-
-        result = connectToMySQL(SCHEMA).query_db(query, {"user_id": user_id})
-        print("********** User Model - get_by_dojo_id() - result --> " + str(result))
-
-        if result:
-            user_model = cls(result[0])
-
-            book_list = []
-            if result[0]['books.id'] != None:
-                for row in result:
-                    book_list.append(book_model.Book(row))
-
-            user_model.books_list = book_list
-
-            print(
-                "********** User Model - get_user_and_books() - user_model --> " + str(user_model))
-
-            return user_model
-
-        return False
-
-
     # Method returns the user info for the given email from DB
     @classmethod
     def get_by_email(cls, email):
@@ -115,26 +82,6 @@ class User:
         return False
 
 
-    # Method returns all the users who do not have a book as their favorite from DB
-    @classmethod
-    def get_users_not_favorite_book(cls, book_id):
-        query = f"""SELECT * FROM users WHERE id NOT IN ( 
-                    SELECT user_id FROM favorites WHERE book_id = %(book_id)s);"""
-
-        result = connectToMySQL(SCHEMA).query_db(query, {"book_id": book_id})
-        print("********** User Model - get_users_not_favorite_book() - result --> " + str(result))
-
-        if result:
-            user_list = []
-            for row in result:
-                user_list.append(cls(row))
-
-            print("********** User Model - get_users_not_favorite_book() - user_model --> " + str(user_list))
-
-            return user_list
-
-        return False
-
 
     # Validator method
     @staticmethod
@@ -143,25 +90,65 @@ class User:
 
         # Login Validation
         if req['form'] == 'login':
+            # Email is minimum 3 characters long(a@b) and less than equal 320 characters
             # Not valid email pattern
-            if not EMAIL_REGEX.match(req['email']): 
-                flash("Invalid email address!", 'email')
-                is_valid = False
-
             # User / email does not exist in DB
-            if not User.get_by_email(req['email']):
-                flash("Not a registered email address!", 'email')
+            # Password is minimum 8 characters long and less than equal 60 characters
+            le = len(req['email'].strip())
+            lp = len(req['password'].strip())
+            if le < 3 or le > 320 \
+                    or not EMAIL_REGEX.match(req['email']) \
+                    or not User.get_by_email(req['email']) \
+                    or lp < 8 or lp > 60:
+                
+                flash("Invalid email / password", 'login')
                 is_valid = False
 
+
+        # Register Validation
+        if req['form'] == 'register':
+            # First Name is minimum 2 characters and less than equal 45 characters
+            l = len(req['first_name'].strip())
+            if l < 2 or l > 45:
+                flash("First Name must be minimum 2 characters and less than equal to 45", 'first_name')
+                is_valid = False
+
+            
+            # Last Name is minimum 2 characters and less than equal 45 characters
+            l = len(req['last_name'].strip())
+            if l < 2 or l > 45:
+                flash("Last Name must be minimum 2 characters and less than equal to 45", 'last_name')
+                is_valid = False
+
+
+            # Email is minimum 3 characters long(a@b) and less than equal 320 characters
             l = len(req['email'].strip())
+            if l < 3 or l > 320:
+                flash("Email must be minimum 2 characters and less than equal to 320", 'email')
+                is_valid = False
 
+            # Not valid email pattern
+            elif not EMAIL_REGEX.match(req['email']): 
+                flash("Invalid email address", 'email')
+                is_valid = False
 
-        if l<1 or l>255 or not req['title'].isalnum():
-            flash('Tile cannot be empty and should be less than or equal to 255 characters', 'title')
-            is_valid = False
+            # User / email already exists in DB
+            elif User.get_by_email(req['email']):
+                flash("Email address already registered ", 'email')
+                is_valid = False
 
-        if not req['num_of_pages'].isnumeric():
-            flash('Not a valid number', 'num_of_pages')
-            is_valid = False
+            
+            # Password & Confirm Password are minimum 8 characters long and less than equal 60 characters
+            lp = len(req['password'].strip())
+            lc = len(req['confirm_password'].strip())
+            if lp < 8 or lp > 60 \
+                    or lc < 8 or lc > 60:
+                flash("Password & Confirm Password must be minimum 8 characters and less than equal to 60", 'password')
+                is_valid = False
+
+            # Pwd Confirm Pwd mismatch
+            elif req['confirm_password'] != req['password']:
+                flash("Password & Confirm Password do not match", 'password')
+                is_valid = False
 
         return is_valid        

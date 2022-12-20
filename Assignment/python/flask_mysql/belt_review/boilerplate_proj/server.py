@@ -1,6 +1,5 @@
 from flask_app import app
 
-from flask_app.controllers.book_controller import *
 from flask_app.controllers.user_controller import *
 
 

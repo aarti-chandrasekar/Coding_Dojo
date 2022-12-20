@@ -20,70 +20,95 @@
                 <h1 class="text-primary">Register</h1>
 
                 <form action="/users/register" method="POST">
-                    <input name="form" value="register">
+                    <input type="hidden" name="form" value="register">
                     <!-- First Name -->
+                    {% for msg in get_flashed_messages(category_filter=["first_name"]) %}
+                    <p class="text-danger font-weight-bold  mt-3">
+                        {{ msg }}
+                    </p>
+                    {% endfor %}
                     <div class="form-group">
                         <label for="first_name" class=" text-white">First Name : <span
-                            class="text-danger font-weight-bold"> *
-                        </span></label>
-                        <input type="text" name="first_name" id="first_name" required maxlength="45"
-                        value="{{data['first_name']}}" class="rounded form-control">
+                                class="text-danger font-weight-bold"> *
+                            </span></label>
+                        <input type="text" name="first_name" id="first_name"
+                            value="{{ session['first_name'] if 'first_name' in session else ''}}"
+                            class="rounded form-control">
                     </div>
-                    
+
                     <!-- Last Name -->
+                    {% for msg in get_flashed_messages(category_filter=["last_name"]) %}
+                    <p class="text-danger font-weight-bold  mt-3">
+                        {{ msg }}
+                    </p>
+                    {% endfor %}
                     <div class="form-group">
                         <label for="last_name" class=" text-white">Last Name : <span
-                            class="text-danger font-weight-bold"> *
-                        </span></label>
-                        <input type="text" name="last_name" id="last_name" required maxlength="45"
-                        value="{{data['last_name']}}" class="rounded form-control">
+                                class="text-danger font-weight-bold"> *
+                            </span></label>
+                        <input type="text" name="last_name" id="last_name"
+                            value="{{ session['last_name']  if 'last_name' in session else ''}}"
+                            class="rounded form-control">
                     </div>
-                    
+
                     <!-- Email -->
+                    {% for msg in get_flashed_messages(category_filter=["email"]) %}
+                    <p class="text-danger font-weight-bold  mt-3">
+                        {{ msg }}
+                    </p>
+                    {% endfor %}
                     <div class="form-group">
                         <label for="email" class=" text-white">Email : <span class="text-danger font-weight-bold"> *
                             </span></label>
-                            <input type="email" name="email" id="email" required maxlength="320" value="{{data['email']}}"
-                            class="rounded form-control">
-                        </div>
-                        
-                        <!-- Password -->
+                        <input type="email" name="email" id="email"
+                            value="{{ session['email']  if 'email' in session else ''}}" class="rounded form-control">
+                    </div>
+
+                    <!-- Password -->
+                    {% for msg in get_flashed_messages(category_filter=["password"]) %}
+                    <p class="text-danger font-weight-bold  mt-3">
+                        {{ msg }}
+                    </p>
+                    {% endfor %}
                     <div class="form-group">
                         <label for="password" class=" text-white">Password : <span class="text-danger font-weight-bold">
-                            *
+                                *
                             </span></label>
-                            <input type="password" name="password" id="password" required maxlength="60"
-                            value="{{data['password']}}" class="rounded form-control">
-                        </div>
-                        
-                        <!-- Confirm Password -->
-                        <div class="form-group">
-                            <label for="confirm_password" class=" text-white">Confirm Password : <span
+                        <input type="password" name="password" id="password" class="rounded form-control">
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="confirm_password" class=" text-white">Confirm Password : <span
                                 class="text-danger font-weight-bold"> *
                             </span></label>
-                            <input type="password" name="confirm_password" id="confirm_password" required maxlength="60"
-                            value="{{data['confirm_password']}}" class="rounded form-control">
-                        </div>
-                        
-                        
-                        <input type="submit" value="Register" class="form-group btn btn-primary my-2">
-                    </form>
-                </div>
-                
+                        <input type="password" name="confirm_password" id="confirm_password"
+                            class="rounded form-control">
+                    </div>
+
+
+                    <input type="submit" value="Register" class="form-group btn btn-primary my-2">
+                </form>
+            </div>
+
             <!-- Right Container -->
             <!-- Login Container -->
             <div class="container bg-dark">
                 <h1 class="text-success">Login</h1>
-                
+
                 <form action="/users/login" method="POST">
-                    <input name="form" value="login">
+                    <input type="hidden" name="form" value="login">
 
                     <!-- Email -->
+                    {% for msg in get_flashed_messages(category_filter=["login"]) %}
+                    <p class="text-danger font-weight-bold  mt-3">
+                        {{ msg }}
+                    </p>
+                    {% endfor %}
                     <div class="form-group">
                         <label for="email" class=" text-white">Email : <span class="text-danger font-weight-bold"> *
                             </span></label>
-                        <input type="email" name="email" id="email" required maxlength="320" value="{{data['email']}}"
-                            class="rounded form-control">
+                        <input type="email" name="email" id="email" class="rounded form-control">
                     </div>
 
                     <!-- Password -->
@@ -91,22 +116,14 @@
                         <label for="password" class=" text-white">Password : <span class="text-danger font-weight-bold">
                                 *
                             </span></label>
-                        <input type="password" name="password" id="password" required maxlength="60"
-                            value="{{data['password']}}" class="rounded form-control">
+                        <input type="password" name="password" id="password" class="rounded form-control">
                     </div>
 
                     <input type="submit" value="Login" class="form-group btn btn-success my-2">
                 </form>
-
-
             </div>
-
         </div>
-
     </div>
-
-
-
 </body>
 
 </html>
