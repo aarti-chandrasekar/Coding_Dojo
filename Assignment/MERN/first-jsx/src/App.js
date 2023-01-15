@@ -1,17 +1,12 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import ToDoList from './components/TodoList';
 
 function App() {
   return (
     <div className="App">
       <h1> Hello Dojo!</h1>
-      <h2>Things I need to do :</h2>
-      <ul>
-        <li>Learn React</li>
-        <li>Climb Mt. Everest</li>
-        <li>Run a marathon</li>
-        <li>Feed the dogs</li>
-      </ul>
+      <ToDoList/>
     </div>
   );
 }
