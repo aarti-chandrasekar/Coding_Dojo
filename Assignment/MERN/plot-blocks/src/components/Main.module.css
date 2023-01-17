@@ -1,0 +1,17 @@
+.main{
+    display: inline-block;
+    background-color: red;
+    width : 500px;
+    height: 500px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sub{
+    display: inline-block;
+    background-color: orange;
+    width : 500px;
+    height: 500px;
+    margin-top: 20px;
+    text-align: center;
+}
