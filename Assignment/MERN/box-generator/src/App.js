@@ -8,7 +8,7 @@ function App() {
   const [boxList, setBoxList] = useState([]);
 
   const addToBoxList = (color, size) => {
-    setBoxList([...boxList, color + "-" + size]);
+    setBoxList([...boxList, {color:color, size:size}]);
   }
 
   return (
@@ -17,7 +17,7 @@ function App() {
 
       <div className='d-flex flex-wrap'>
         {boxList.map((value, index) => {
-          const [color, size] = value.split("-");
+          const {color, size} = value;
           return (< Box key={index} color={color} size={size + "px"} />);
         }
         )}
