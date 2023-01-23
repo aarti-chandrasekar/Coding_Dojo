@@ -61,60 +61,60 @@ const UserForm = props => {
     }
 
     return (
-        <form class="row d-flex justify-content-center">
-            <div class="bg-dark m-2 p-3 w-50" >
+        <form className="row d-flex justify-content-center">
+            <div className="bg-dark m-2 p-3 w-50" >
                 {/* <!-- First Name --> */}
-                <div class="form-group">
-                    <label htmlFor="first_name" class="form-label text-white">First Name </label>
+                <div className="form-group">
+                    <label htmlFor="first_name" className="form-label text-white">First Name </label>
                     <input type="text" name="first_name" id="first_name"
                         onChange={validateFirstName}
-                        value={firstName} class="rounded form-control" />
-                    {firstNameError ? <p class="text-danger">{firstNameError}</p> : ""}
+                        value={firstName} className="rounded form-control" />
+                    {firstNameError ? <p className="text-danger">{firstNameError}</p> : ""}
                 </div>
 
                 {/* <!-- Last Name --> */}
-                <div class="form-group">
-                    <label htmlFor="last_name" class=" text-white form-label">Last Name  </label>
+                <div className="form-group">
+                    <label htmlFor="last_name" className=" text-white form-label">Last Name  </label>
                     <input type="text" name="last_name" id="last_name"
                         onChange={validateLastName}
-                        value={lastName} class="rounded form-control" />
-                    {lastNameError ? <p class="text-danger">{lastNameError}</p> : ""}
+                        value={lastName} className="rounded form-control" />
+                    {lastNameError ? <p className="text-danger">{lastNameError}</p> : ""}
                 </div>
 
                 {/* <!-- Email --> */}
-                <div class="form-group">
-                    <label htmlFor="email" class=" text-white">Email  </label>
+                <div className="form-group">
+                    <label htmlFor="email" className=" text-white">Email  </label>
                     <input type="email" name="email" id="email"
                         onChange={validateEmail}
-                        value={email} class="rounded form-control" />
-                    {emailError ? <p class="text-danger">{emailError}</p> : ""}
+                        value={email} className="rounded form-control" />
+                    {emailError ? <p className="text-danger">{emailError}</p> : ""}
                 </div>
 
                 {/* <!-- Password --> */}
-                <div class="form-group">
-                    <label htmlFor="password" class=" text-white">Password  </label>
+                <div className="form-group">
+                    <label htmlFor="password" className=" text-white">Password  </label>
                     <input type="password" name="password" id="password"
                         onChange={validatePassword}
-                        value={password} class="rounded form-control" />
-                    {passwordError ? <p class="text-danger">{passwordError}</p> : ""}
+                        value={password} className="rounded form-control" />
+                    {passwordError ? <p className="text-danger">{passwordError}</p> : ""}
                 </div>
 
                 {/* <!-- Confirm Password --> */}
-                <div class="form-group">
-                    <label htmlFor="confirm_password" class=" text-white">Confirm Password  </label>
+                <div className="form-group">
+                    <label htmlFor="confirm_password" className=" text-white">Confirm Password  </label>
                     <input type="password" name="confirm_password" id="confirm_password"
                         onChange={validateConfirmPassword}
-                        value={confirmPassword} class="rounded form-control" />
-                    {confirmPasswordError ? <p class="text-danger">{confirmPasswordError}</p> : ""}
-                    {passwordMatchError ? <p class="text-danger">{passwordMatchError}</p> : ""}
+                        value={confirmPassword} className="rounded form-control" />
+                    {confirmPasswordError ? <p className="text-danger">{confirmPasswordError}</p> : ""}
+                    {passwordMatchError ? <p className="text-danger">{passwordMatchError}</p> : ""}
                 </div>
             </div>
-            <div class="m-2 p-3 w-50">
-                <p class="row">First Name : {firstName}</p>
-                <p class="row">Last Name : {lastName}</p>
-                <p class="row">Email : {email}</p>
-                <p class="row">Password : {password}</p>
-                <p class="row">Confirm Password : {confirmPassword}</p>
+            <div className="m-2 p-3 w-50">
+                <p className="row">First Name : {firstName}</p>
+                <p className="row">Last Name : {lastName}</p>
+                <p className="row">Email : {email}</p>
+                <p className="row">Password : {password}</p>
+                <p className="row">Confirm Password : {confirmPassword}</p>
             </div>
         </form>
 
