@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, Link, useParams } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductView = () => {
+const ProductView = ({handleDelete}) => {
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -12,6 +12,8 @@ const ProductView = () => {
 
     const { id } = useParams()
     const url = `http://localhost:8000/api/products/${id}`;
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(url)
@@ -26,6 +28,17 @@ const ProductView = () => {
             });
     }, [])
 
+    const onDelete = (e) => { 
+        const url = `http://localhost:8000/api/products/${id}`;
+        axios.delete(url)
+            .then(response => {
+                console.log("axios res - ", response.data);
+                navigate("/")
+            }).catch(err => {
+                console.log(err);
+                setServerError("Error deleting Product " )
+            });        
+    }
 
     return (
         <div className="row d-flex justify-content-center">
@@ -35,6 +48,9 @@ const ProductView = () => {
                 <h2 className="text-center">{title}</h2>
                 <h4 className="text-center">Price : ${price}</h4>
                 <h4 className="text-center">Description :{description}</h4>
+
+                <input type="button" value="Delete" 
+                        onClick={onDelete}/>
 
                 {serverError ? <p className="text-danger">{serverError}</p> : ""}
 

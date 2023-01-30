@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
 const ProductForm = ({updateRefreshListFlag}) => {
+
+    const {id} = useParams()
+    console.log("ID *********** ", id)
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
