@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const ProductForm = () => {
+const ProductForm = ({updateRefreshListFlag}) => {
 
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
@@ -40,6 +40,7 @@ const ProductForm = () => {
                     setTitle("")
                     setDescription("")
                     setPrice("")
+                    updateRefreshListFlag()
                 }).catch(err => {
                     console.log(err);
                     setServerError("Unexpected Error. Try Again")
@@ -49,7 +50,7 @@ const ProductForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className="row d-flex justify-content-center">
-            <h2 class="text-center">Product Manager</h2>
+            <h2 className="text-center">Product Manager</h2>
             <div className="bg-dark m-2 p-3 w-50 " >
                 {/* <!-- Title --> */}
                 <div className="form-group">

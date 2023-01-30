@@ -2,15 +2,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route, Link, useParams } from 'react-router-dom';
 
 import './App.css';
-import ProductForm from "./components/ProductForm";
+import Main from "./views/Main";
+import ProductView from "./views/ProductView";
 
 function App() {
   return (
     <BrowserRouter>
       <div>
           <Routes>
-            <Route path={"/"} element={<ProductForm />} />
-            {/* <Route path={"/:resourceParam/:idParam"} element={<SearchPage />} /> */}
+            <Route path={"/"} element={<Main />} />
+            <Route path={"/:id"} element={<ProductView />} />
           </Routes>
       </div>
     </BrowserRouter>
