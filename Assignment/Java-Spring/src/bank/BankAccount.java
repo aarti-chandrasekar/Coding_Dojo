@@ -48,20 +48,22 @@ public class BankAccount {
     public boolean withdraw(AcType acType, double amt) {
         boolean isSuccess = true;
         switch (acType) {
-            case CHECKING:
+            case CHECKING ->
+            {
                 if (amt > checkingBal) {
                     isSuccess = false;
                 } else {
                     checkingBal -= amt;
                 }
-                break;
-            case SAVING:
+            }
+            case SAVING ->
+            {
                 if (amt > savingBal) {
                     isSuccess = false;
                 } else {
                     savingBal -= amt;
                 }
-                break;
+            }
         }
         if (isSuccess) {
             totalAmt -= amt;
@@ -70,8 +72,8 @@ public class BankAccount {
     }
 
     public void printBalance() {
-        System.out.println(String.format("Balance in your A/C is $%.2f",
-                checkingBal + savingBal));
+        System.out.printf("Balance in your A/C is $%.2f%n",
+                checkingBal + savingBal);
     }
 
     public enum AcType {

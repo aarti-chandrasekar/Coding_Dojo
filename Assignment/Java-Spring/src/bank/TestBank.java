@@ -13,13 +13,13 @@ public class TestBank {
         ac2.deposit(BankAccount.AcType.SAVING, 1000);
         ac3.deposit(BankAccount.AcType.SAVING, 1500);
 
-        System.out.println(String.format(" A/C # %d - After Deposit", ac1.getAcNumber()));
+        System.out.printf(" A/C # %d - After Deposit%n", ac1.getAcNumber());
         ac1.printBalance();
 
-        System.out.println(String.format(" A/C # %d - After Deposit", ac2.getAcNumber()));
+        System.out.printf(" A/C # %d - After Deposit%n", ac2.getAcNumber());
         ac2.printBalance();
 
-        System.out.println(String.format(" A/C # %d - After Deposit", ac3.getAcNumber()));
+        System.out.printf(" A/C # %d - After Deposit%n", ac3.getAcNumber());
         ac3.printBalance();
 
         System.out.println(ac1.withdraw(BankAccount.AcType.SAVING, 1500) ?  "Withdraw Successful" :
@@ -27,7 +27,7 @@ public class TestBank {
         System.out.println(ac3.withdraw(BankAccount.AcType.CHECKING, 5000) ?  "Withdraw Successful" :
             "Insufficient Balance");
 
-        System.out.println(String.format("Total Amount in the Bank - $%.2f", BankAccount.getTotalAmt()));
+        System.out.printf("Total Amount in the Bank - $%.2f%n", BankAccount.getTotalAmt());
     }
     
 }
