@@ -95,14 +95,16 @@ class SinglyLinkedList {
       return null
     } else {
       let curr = this.head
-      while (curr.next.next !== null) {
+      let prev = this.head
+      while (curr.next !== null) {
+        prev = curr
         curr = curr.next
       }
 
-      const data = curr.next.data
-      this.last = curr
+      const data = curr.data
+      this.last = prev
       this.last.next = null
-      console.log(`Removed ${data} from the front of the list`)
+      console.log(`Removed ${data} from the back of the list`)
       return data
     }
   }
@@ -122,11 +124,10 @@ class SinglyLinkedList {
   toArr() {
     let newArr = []
     let curr = this.head
-    while (curr.next !== null) {
+    while (curr !== null) {
       newArr.push(curr.data)
       curr = curr.next
     }
-    newArr.push(curr.data)
     return newArr
   }
 
@@ -141,7 +142,7 @@ class SinglyLinkedList {
 * @returns {SinglyLinkedList} This list.
 */
   insertAtBackRecursive(data, runner = this.head) {
-    
+
     if (this.isEmpty()) {
       const node = new ListNode(data)
       this.head = node
@@ -157,15 +158,69 @@ class SinglyLinkedList {
 
 
   printList() {
+    if (this.isEmpty()) {
+      console.log("Empty List")
+      return
+    }
+
     let curr = this.head
     console.log("Current List Values :")
-    while (curr.next !== null) {
+    while (curr !== null) {
       console.log(curr.data)
       curr = curr.next
     }
-    console.log(curr.data)
+  }
+
+  contains(val) {
+    if (this.isEmpty()) {
+      console.log("Empty List")
+      return false
+    }
+
+    let curr = this.head
+    while (curr !== null) {
+      if (curr.data === val) {
+        return true
+      }
+      curr = curr.next
+    }
+    return false
+  }
+
+
+  average() {
+    if (this.isEmpty()) {
+      console.log("Empty List")
+      return NaN
+    }
+
+    let curr = this.head
+    let cnt = 0
+    let sum = 0
+
+    while (curr !== null) {
+      cnt++
+      sum += curr.data
+      curr = curr.next
+    }
+
+    return (sum / cnt)
+  }
+
+  containsRecursive(val, current = this.head) {
+    if (current === null) {
+      return false
+    }
+    if (current.data === val) {
+      return true
+    }
+
+    return this.containsRecursive(val, current.next)
   }
 }
+
+
+
 
 const sll = new SinglyLinkedList()
 sll.insertAtBack(5)
@@ -208,5 +263,14 @@ sll4.insertAtBackRecursive(27)
 sll4.insertAtBackRecursive(16)
 console.log("Added values at back/end using RECURSION method- 9 22 4 27 16")
 sll4.printList()
+
+console.log(`Is 22 present in the list ? `, sll4.contains(22))
+console.log(`Is 1 present in the list ? `, sll4.contains(1))
+
+console.log(`Recursion - Is 22 present in the list ? `, sll4.containsRecursive(22))
+console.log(`Recursion - Is 1 present in the list ? `, sll4.containsRecursive(1))
+
+console.log("The average of - 9 22 4 27 16 is ", sll4.average())
+
 
 
