@@ -217,6 +217,53 @@ class SinglyLinkedList {
 
     return this.containsRecursive(val, current.next)
   }
+
+  getSecondToLast = () => {
+    if (this.isEmpty()) {
+      console.log("Empty List")
+      return null
+    }
+
+    let curr = this.head
+    let prev = this.head
+    while (curr.next !== null) {
+      prev = curr
+      curr = curr.next
+    }
+
+    if (prev === curr) { //Only 1 node, so no second to last
+      return null
+    } else {
+      return prev.data
+    }
+  }
+
+  removeVal(val) {
+    let found = false
+    if (this.isEmpty()) {
+      console.log("Empty List")
+    } else {
+      let curr = this.head
+      let prev = this.head
+
+      // Till the end of list is reached
+      while (curr !== null) {
+        if (curr.data === val) {
+          found = true
+          // If First/Head Node 
+          if  (curr === this.head) {
+            this.head = curr.next
+          } else {
+            prev.next = curr.next
+          }
+        }
+
+        prev = curr
+        curr = curr.next
+      }
+    }
+    return found;
+  }
 }
 
 
@@ -272,5 +319,23 @@ console.log(`Recursion - Is 1 present in the list ? `, sll4.containsRecursive(1)
 
 console.log("The average of - 9 22 4 27 16 is ", sll4.average())
 
+console.log("Second to Last from [7, 4, 9, 1, 5] - ", sll3.getSecondToLast())
+
+const sll5 = new SinglyLinkedList()
+console.log("Second to Last from [] - ", sll5.getSecondToLast())
+sll5.insertAtBack(7)
+console.log("Second to Last from [7] - ", sll5.getSecondToLast())
+sll5.insertAtBack(9)
+console.log("Second to Last from [7, 9] - ", sll5.getSecondToLast())
+
+console.log("Create a new Linked List from the array (add to back)- [9, 7, 4, 9, 1, 9, 5, 15, 9]")
+const sll6 = new SinglyLinkedList()
+// sll6.seedFromArr([9, 9,9,9,9,9,9,9, 9])
+// sll6.seedFromArr([9, 15, 9])
+sll6.seedFromArr([9, 7, 4, 9, 1, 9, 5, 15, 9])
+
+console.log("After removing 9")
+sll6.removeVal(9)
+sll6.printList()
 
 
