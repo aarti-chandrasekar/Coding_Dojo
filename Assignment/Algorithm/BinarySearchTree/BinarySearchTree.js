@@ -99,15 +99,75 @@ class BinarySearchTree {
    *    the tree is being traversed.
    * @returns {number} The smallest integer from this tree.
    */
-    min(current = this.root) { 
+    min(current = this.root) {
         if (!this.isEmpty()) {
-            if (current.left === null){
+            if (current.left === null) {
                 return current.data
             }
             return this.min(current.left)
         }
     }
+
+    max(current = this.root) {
+        if (!this.isEmpty()) {
+            if (current.right === null) {
+                return current.data
+            }
+            return this.max(current.right)
+        }
+    }
+
+    contains(searchVal) {
+        if (!this.isEmpty()) {
+            let curr = this.root
+            // Traverse the list while either left or right is not null
+            while (curr) {
+                // console.log("CURRENT ************ ", curr.data)
+                if (searchVal === curr.data) {
+                    return true;
+                }
+                // Traverse RIGHT
+                if (searchVal > curr.data) {
+                    // console.log("Traversing to the RIGHT of ", curr.data)
+                    curr = curr.right
+                } else {
+                    // Traverse LEFT
+                    // console.log("Traversing to the LEFT of ", curr.data)
+                    curr = curr.left
+                }
+            }
+        }
+        return false
+    }
+
+    containsRecursive(searchVal, current = this.root) {
+        if (this.isEmpty()) {
+            return false
+        } else {
+            // Traverse the list while either left or right is not null
+            if (current) {
+                // console.log("currentENT ************ ", current.data)
+                if (searchVal === current.data) {
+                    return true;
+                }
+                // Traverse RIGHT
+                if (searchVal > current.data) {
+                    // console.log("Traversing to the RIGHT of ", current.data)
+                    return this.containsRecursive(searchVal, current.right)
+                } else {
+                    // Traverse LEFT
+                    // console.log("Traversing to the LEFT of ", current.data)
+                    return this.containsRecursive(searchVal, current.left)
+                }
+            } else {
+                return false
+            }
+        }
+
+    }
 }
+
+
 
 const bst = new BinarySearchTree()
 bst.insert(20)
@@ -122,3 +182,12 @@ bst.insert(16)
 bst.insert(27)
 
 console.log("The min value in the tree is ", bst.min())
+console.log("The max value in the tree is ", bst.max())
+
+console.log("Is 15 present in the tree ? ", bst.contains(15))
+console.log("Is 27 present in the tree ? ", bst.contains(27))
+console.log("Is 100 present in the tree ? ", bst.contains(100))
+
+console.log("Is 15 present in the tree - RECURSIVE ? ", bst.containsRecursive(15))
+console.log("Is 27 present in the tree - RECURSIVE? ", bst.containsRecursive(27))
+console.log("Is 100 present in the tree - RECURSIVE? ", bst.containsRecursive(100))
