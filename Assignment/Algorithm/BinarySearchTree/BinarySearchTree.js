@@ -55,41 +55,77 @@ class BinarySearchTree {
    * @param {number} newVal The data to be added to a new node.
    * @returns {BinarySearchTree} This tree.
    */
+
     insert(newVal) {
         const newNode = new BSTNode(newVal)
-
         if (this.isEmpty()) {
             // Inserting ROOT
             console.log(`Inserting ${newVal} as the ROOT`)
             this.root = newNode
         } else {
             let curr = this.root
-            // Traverse the list while either left or right is not null
-            // When it is null we have reached the node where the new node is to be inserted
-            while (curr.left !== null && curr.right !== null) {
+            // Traverse the list while current node is not null
+            while (curr) {
                 // Traverse RIGHT
                 if (newVal > curr.data) {
                     // console.log("Traversing to the RIGHT of ", curr.data)
-                    curr = (curr.right !== null) ? curr.right : curr
+                    if (curr.right !== null) {
+                        curr = curr.right
+                    } else {
+                        // Insert RIGHT
+                        console.log(`Inserting ${newVal} to the RIGHT of ${curr.data}`)
+                        curr.right = newNode
+                        break
+                    }
                 } else {
                     // Traverse LEFT
                     // console.log("Traversing to the LEFT of ", curr.data)
-                    curr = (curr.left !== null) ? curr.left : curr
+                    if (curr.left !== null) {
+                        curr = curr.left
+                    } else {
+                        // Insert LEFT
+                        console.log(`Inserting ${newVal} to the LEFT of ${curr.data}`)
+                        curr.left = newNode
+                        break
+                    }
                 }
-            }
-            // Insert RIGHT
-            if (newVal > curr.data) {
-                console.log(`Inserting ${newVal} to the RIGHT of ${curr.data}`)
-                curr.right = newNode
-            } else {
-                // Insert LEFT
-                console.log(`Inserting ${newVal} to the LEFT of ${curr.data}`)
-                curr.left = newNode
             }
         }
         return this
     }
 
+    insertRecursive(newVal, curr = this.root) {
+        if (this.isEmpty()) {
+            // Inserting ROOT
+            console.log(`Inserting ${newVal} as the ROOT`)
+            this.root = new BSTNode(newVal)
+        } else {
+            if (curr) {
+                // Traverse RIGHT
+                if (newVal > curr.data) {
+                    // console.log("Traversing to the RIGHT of ", curr.data)
+                    if (curr.right !== null) {
+                        this.insertRecursive(newVal, curr.right)
+                    } else {
+                        // Insert RIGHT
+                        console.log(`Inserting ${newVal} to the RIGHT of ${curr.data}`)
+                        curr.right = new BSTNode(newVal)
+                    }
+                } else {
+                    // Traverse LEFT
+                    // console.log("Traversing to the LEFT of ", curr.data)
+                    if (curr.left !== null) {
+                        this.insertRecursive(newVal, curr.left)
+                    } else {
+                        // Insert LEFT
+                        console.log(`Inserting ${newVal} to the LEFT of ${curr.data}`)
+                        curr.left = new BSTNode(newVal)
+                    }
+                }
+            }
+        }
+        return this
+    }
 
     /**
    * Retrieves the smallest integer data from this tree.
@@ -100,22 +136,42 @@ class BinarySearchTree {
    * @returns {number} The smallest integer from this tree.
    */
     min(current = this.root) {
-        if (!this.isEmpty()) {
+        if (current) {
             if (current.left === null) {
                 return current.data
             }
             return this.min(current.left)
+        } else {
+            return NaN
         }
     }
 
     max(current = this.root) {
-        if (!this.isEmpty()) {
+        if (current) {
             if (current.right === null) {
                 return current.data
             }
             return this.max(current.right)
+        } else {
+            return NaN
         }
     }
+
+/**
+ * Calculates the range (max - min) from the given startNode.
+ * - Time: O(?).
+ * - Space: O(?).
+ * @param {Node} startNode The node to start from to calculate the range.
+ * @returns {number|null} The range of this tree or a sub tree depending on if the
+ *    startNode is the root or not.
+ */
+    range(startNode = this.root) {
+        if (startNode) {
+            return this.max(startNode) - this.min(startNode)
+        } else {
+            return NaN
+        }
+     }
 
     contains(searchVal) {
         if (!this.isEmpty()) {
@@ -191,3 +247,15 @@ console.log("Is 100 present in the tree ? ", bst.contains(100))
 console.log("Is 15 present in the tree - RECURSIVE ? ", bst.containsRecursive(15))
 console.log("Is 27 present in the tree - RECURSIVE? ", bst.containsRecursive(27))
 console.log("Is 100 present in the tree - RECURSIVE? ", bst.containsRecursive(100))
+
+const bst2 = new BinarySearchTree()
+bst2.insertRecursive(20)
+bst2.insertRecursive(10)
+bst2.insertRecursive(25)
+bst2.insertRecursive(5)
+bst2.insertRecursive(15)
+bst2.insertRecursive(22)
+bst2.insertRecursive(50)
+
+console.log("The range starting at 20 is ", bst.range())
+console.log("The range starting at 50 is ", bst.range(bst.root.right.right))
