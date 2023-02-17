@@ -157,21 +157,21 @@ class BinarySearchTree {
         }
     }
 
-/**
- * Calculates the range (max - min) from the given startNode.
- * - Time: O(?).
- * - Space: O(?).
- * @param {Node} startNode The node to start from to calculate the range.
- * @returns {number|null} The range of this tree or a sub tree depending on if the
- *    startNode is the root or not.
- */
+    /**
+     * Calculates the range (max - min) from the given startNode.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @param {Node} startNode The node to start from to calculate the range.
+     * @returns {number|null} The range of this tree or a sub tree depending on if the
+     *    startNode is the root or not.
+     */
     range(startNode = this.root) {
         if (startNode) {
             return this.max(startNode) - this.min(startNode)
         } else {
             return NaN
         }
-     }
+    }
 
     contains(searchVal) {
         if (!this.isEmpty()) {
@@ -221,6 +221,56 @@ class BinarySearchTree {
         }
 
     }
+
+    /**
+     * DFS Preorder: (CurrNode, Left, Right)
+     * Converts this BST into an array following Depth First Search preorder.
+     * Example on the fullTree var:
+     * [25, 15, 10, 4, 12, 22, 18, 24, 50, 35, 31, 44, 70, 66, 90]
+     * @param {Node} node The current node during the traversal of this tree.
+     * @param {Array<number>} vals The data that has been visited so far.
+     * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+     */
+    toArrPreorder(node = this.root, vals = []) {
+        if (node) {
+            vals.push(node.data)
+            this.toArrPreorder(node.left, vals)
+            this.toArrPreorder(node.right, vals)
+        }
+        return vals
+    }
+
+    /**
+     * DFS Inorder: (Left, CurrNode, Right)
+     * Converts this BST into an array following Depth First Search inorder.
+     * See debugger call stack to help understand the recursion.
+     * Example on the fullTree var:
+     * [4, 10, 12, 15, 18, 22, 24, 25, 31, 35, 44, 50, 66, 70, 90]
+     * @param {Node} node The current node during the traversal of this tree.
+     * @param {Array<number>} vals The data that has been visited so far.
+     * @returns {Array<number>} The vals in DFS Preorder once all nodes visited.
+    */
+    toArrInorder(node = this.root, vals = []) {
+        if (node) {
+            this.toArrInorder(node.left, vals)
+            vals.push(node.data)
+            this.toArrInorder(node.right, vals)
+        }
+        return vals
+    } 
+
+    print(node = this.root, spaceCnt = 0, spaceIncr = 10) {
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        spaceCnt += spaceIncr;
+        if (node.right) this.print(node.right, spaceCnt);
+
+        console.log(" ".repeat(spaceCnt < spaceIncr ? 0 : spaceCnt - spaceIncr) + `${node.data}`);
+
+        if (node.left) this.print(node.left, spaceCnt);
+    }
 }
 
 
@@ -259,3 +309,7 @@ bst2.insertRecursive(50)
 
 console.log("The range starting at 20 is ", bst.range())
 console.log("The range starting at 50 is ", bst.range(bst.root.right.right))
+
+bst.print()
+console.log("DFS Pre-order ---> ", bst.toArrPreorder())
+console.log("DFS In-order ---> ", bst.toArrInorder())
