@@ -22,7 +22,18 @@ public class ExpenseController {
     @GetMapping("")
     public String homePage(Model model, HttpSession session) {
         model.addAttribute("expense", new Expense());
-        session.setAttribute("expenseList", expenseService.getAll());
+
+        String searchKey = (session.getAttribute("searchKey") == null) ? null :
+                session.getAttribute("searchKey").toString();
+
+        // Just Page Load without any Search Param
+        if (searchKey == null) {
+            session.setAttribute("expenseList", expenseService.getAll());
+        } else {
+            ((Expense) model.getAttribute("expense")).setSearchKey(searchKey);
+            session.removeAttribute("searchKey");
+            session.setAttribute("expenseList", expenseService.getAllByName(searchKey));
+        }
 
         return "index";
     }
@@ -62,6 +73,12 @@ public class ExpenseController {
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
         expenseService.delete(id);
+        return "redirect:/expenses";
+    }
+
+    @PostMapping("/search")
+    public String search(@RequestParam("searchKey") String searchKey, HttpSession session) {
+        session.setAttribute("searchKey", searchKey);
         return "redirect:/expenses";
     }
 }

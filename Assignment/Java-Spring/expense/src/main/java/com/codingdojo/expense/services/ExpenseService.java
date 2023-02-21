@@ -15,7 +15,11 @@ public class ExpenseService {
     }
 
     public List<Expense> getAll() {
-        return expenseRepo.findAll();
+        return expenseRepo.findAllByOrderByAmountDesc();
+    }
+
+    public List<Expense> getAllByName(String searchKey) {
+        return expenseRepo.findAllByNameContainingIgnoreCase(searchKey);
     }
 
     public Expense get(Long id) {

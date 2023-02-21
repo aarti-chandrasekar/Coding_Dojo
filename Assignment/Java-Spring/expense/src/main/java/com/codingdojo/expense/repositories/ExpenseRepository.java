@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ExpenseRepository extends CrudRepository<Expense, Long> {
-    List<Expense> findAll();
+    List<Expense> findAllByOrderByAmountDesc();
+
+    List<Expense> findAllByNameContainingIgnoreCase(String searchKey);
 }

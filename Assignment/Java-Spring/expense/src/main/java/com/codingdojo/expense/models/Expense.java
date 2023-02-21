@@ -32,6 +32,9 @@ public class Expense {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updatedAt;
 
+    @Transient
+    private String searchKey;
+
     public Expense() {
     }
 
@@ -121,5 +124,11 @@ public class Expense {
         this.updatedAt = updatedAt;
     }
 
-    // Generate Getters, Setters, no-Arg & arg Constructors, toString method
+    public String getSearchKey() {
+        return searchKey;
+    }
+
+    public void setSearchKey(String searchKey) {
+        this.searchKey = searchKey;
+    }
 }

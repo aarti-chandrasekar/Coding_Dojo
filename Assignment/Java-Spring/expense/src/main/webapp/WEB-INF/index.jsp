@@ -22,6 +22,14 @@
         <h1>
             Save Travels
         </h1>
+        <form:form action="/expenses/search" method="post" modelAttribute="expense">
+            <form:label path="searchKey">Search Expense by Name :</form:label>
+            <form:input path="searchKey"/>
+
+            <%--            <label for="searchKey">Search Expense by Name :</label>--%>
+            <%--            <input type="text" name="searchKey" id="searchKey"/>--%>
+            <input type="submit" value="Search" class="btn btn-success me-3"/>
+        </form:form>
 
         <table class="table table-bordered border-primary text-center text-white">
             <thead>
