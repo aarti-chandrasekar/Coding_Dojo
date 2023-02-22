@@ -15,13 +15,13 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "Name cannot be empty")
-    @Size(min = 1, max = 100, message = "Name cannot be empty")
+    @Size(min = 1, max = 100, message = "Name cannot be empty and must be less than or equal to 100 characters")
     private String name;
     @NotNull(message = "Description cannot be empty")
-    @Size(min = 1, max = 500, message = "Description cannot be empty")
+    @Size(min = 1, max = 500, message = "Description cannot be empty and must be less than or equal to 500 characters")
     private String description;
     @NotNull(message = "Vendor cannot be empty")
-    @Size(min = 1, max = 100, message = "Vendor cannot be empty")
+    @Size(min = 1, max = 100, message = "Vendor cannot be empty and must be less than or equal to 100 characters")
     private String vendor;
     @NotNull(message = "Amount cannot be empty")
     @DecimalMin(value = "0.01", message = "Amount must be greater than 0")

@@ -30,6 +30,15 @@ public class Book {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
 
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
+
     public Book() {
     }
     public Book(String title, String desc, String lang, int pages) {
@@ -95,14 +104,6 @@ public class Book {
         this.updatedAt = updatedAt;
     }
 
-    @PrePersist
-    protected void onCreate(){
-        this.createdAt = new Date();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.updatedAt = new Date();
-    }
 
     @Override
     public String toString() {

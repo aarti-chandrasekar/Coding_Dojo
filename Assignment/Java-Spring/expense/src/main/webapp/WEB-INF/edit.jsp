@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
                 <form:label path="amount" cssClass="form-label">Amount :</form:label>
-                <form:input path="amount" type="number" cssClass="form-control"/>
+                <form:input path="amount" type="number" step="0.01" cssClass="form-control"/>
                 <form:errors path="amount" cssClass="text-danger"/>
             </div>
             <div class="form-group">
