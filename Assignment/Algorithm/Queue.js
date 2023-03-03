@@ -1,3 +1,4 @@
+const Stack = require('./Stack')
 /**
  *
  * Follows a FIFO (First In First Out) order where new items are added to the
@@ -86,7 +87,7 @@ class Queue {
      * - Space: O(1) constant.
      * @returns {number} The length.
      */
-    size() {
+    getSize() {
         return this.size
     }
 
@@ -111,7 +112,7 @@ class Queue {
 
         // Till we reach the end of the Q
         while (runner) {
-            if (searchVal === runner.data){
+            if (searchVal === runner.data) {
                 return true
             }
             runner = runner.next
@@ -128,6 +129,71 @@ class Queue {
     seed(vals) {
         vals.forEach(val => this.enqueue(val))
         return this
+    }
+
+/**
+* Compares this queue to another given queue to see if they are equal.
+* Avoid indexing the queue items directly via bracket notation, use the
+* queue methods instead for practice.
+* Use no extra array or objects.
+* The queues should be returned to their original order when done.
+* - Time: O(?).
+* - Space: O(?).
+* @param {Queue} q2 The queue to be compared against this queue.
+* @returns {boolean} Whether all the items of the two queues are equal and
+*    in the same order.
+*/
+    compareQueues(q2) {
+        if (this.getSize() != q2.getSize()){
+            return false
+        }
+
+        let curr1 = this.head
+        let curr2 = q2.head
+        while (curr1){
+            if (curr1.data !== curr2.data){
+                return false
+            }
+            curr1 = curr1.next
+            curr2 = curr2.next
+        }
+        return true
+    }
+
+    /**
+     * Determines if the queue is a palindrome (same items forward and backwards).
+     * Avoid indexing queue items directly via bracket notation, instead use the
+     * queue methods for practice.
+     * Use only 1 stack as additional storage, no other arrays or objects.
+     * The queue should be returned to its original order when done.
+     * - Time: O(?).
+     * - Space: O(?).
+     * @returns {boolean}
+     */
+    isPalindrome() { 
+        const mid = Math.floor(this.getSize()/2)
+        const odd = this.getSize() % 2
+        let curr1 = this.head
+        let curr2 = this.head
+        let j=1
+        while (j === mid+odd+1){
+            curr2 = curr2.next
+            j++
+        }
+
+        const stack = new Stack()
+        while (curr2){
+            stack.push(curr2)
+            curr2 = curr2.next
+        }
+
+        while (curr1){
+            if (curr1.data !== stack.pop().data){
+                return false
+            }
+            curr1 = curr1.next
+        }
+        return true
     }
 
 }
@@ -164,3 +230,8 @@ console.log("Q is empty ?  ", q.isEmpty())
 
 console.log("Q after adding array [9, 8, 7, 6, 5] ")
 q.seed([9, 8, 7, 6, 5]).print()
+
+const q3 = new Queue()
+q3.seed([9, 8, 7, 8, 9]).print()
+
+console.log("Is Palindrome ---> ", q3.isPalindrome())

@@ -93,4 +93,6 @@ class Stack {
   console.log("Stack.pop() ----> ", stack.pop().data)
   console.log("Stack.pop() ----> ", stack.pop().data)
 
+module.exports = Stack
+
 
